@@ -17,5 +17,11 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 # Install AWS CLI
 RUN pip install awscli awsebcli
 
+# Set ~/.aws as default dir for bash
+echo cd /root/.aws >> ~/.bashrca
+
+# Volumes
+VOLUME ["/root/.aws"]
+
 # Make sure we land in a shell
 CMD ["/bin/bash"]
